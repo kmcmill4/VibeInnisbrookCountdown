@@ -1,65 +1,142 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { useState, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Timer, MapPin, Trophy, Info, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// Animation Variants
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100 } }
+};
+
+export default function InnisbrookDashboard() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const target = new Date("2026-05-16T08:00:00-04:00").getTime();
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = target - now;
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-[#0B0D0E] text-slate-100 p-4 md:p-8 font-sans selection:bg-[#b87333]">
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-6xl mx-auto space-y-8"
+      >
+        {/* HEADER */}
+        <motion.header variants={item} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <h1 className="text-4xl font-black tracking-tighter text-white">
+              BOYS GOLF TRIP <span className="text-[#b87333]">INNISBROOK</span>
+            </h1>
+            <p className="text-slate-500 font-medium">Palm Harbor, FL • May 2026</p>
+          </div>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-3 bg-[#16191B] border border-white/10 px-4 py-2 rounded-2xl cursor-default shadow-lg shadow-emerald-500/5"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+             <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
+             <p className="text-sm font-bold text-emerald-400 uppercase">System Online</p>
+          </motion.div>
+        </motion.header>
+
+        {/* HERO COUNTDOWN */}
+        <motion.section 
+          variants={item}
+          whileHover={{ shadow: "0 20px 25px -5px rgba(184, 115, 51, 0.1)" }}
+          className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-gradient-to-br from-[#16191B] to-[#0B0D0E] p-8 md:p-12 shadow-2xl"
+        >
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { label: 'Days', value: timeLeft.days },
+              { label: 'Hours', value: timeLeft.hours },
+              { label: 'Minutes', value: timeLeft.minutes },
+              { label: 'Seconds', value: timeLeft.seconds },
+            ].map((unit) => (
+              <div key={unit.label}>
+                <div className="text-5xl md:text-7xl font-black text-white tabular-nums">{unit.value}</div>
+                <div className="text-[#b87333] uppercase tracking-widest text-xs font-bold mt-2">{unit.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div variants={item} className="md:col-span-2">
+            <Card className="bg-[#16191B] border-white/5 rounded-3xl h-full shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2 italic">
+                  <MapPin className="text-[#b87333]" /> THE GAUNTLET
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {[
+                  { course: "Copperhead", time: "5/16 • 8:00 AM", tag: "THE SNAKE PIT", color: "text-[#b87333]" },
+                  { course: "Island Course", time: "5/17 • 8:30 AM", tag: "WATER EVERYWHERE", color: "text-emerald-400" },
+                  { course: "South Course", time: "5/18 • 8:55 AM", tag: "REDEMPTION", color: "text-blue-400" },
+                ].map((round) => (
+                  <motion.div 
+                    key={round.course}
+                    whileHover={{ x: 10, backgroundColor: "rgba(255,255,255,0.05)" }}
+                    className="p-4 rounded-2xl bg-white/5 border border-white/5 flex justify-between items-center transition-colors cursor-pointer group"
+                  >
+                    <div>
+                      <p className="font-bold text-white group-hover:text-[#b87333] transition-colors">{round.course}</p>
+                      <p className="text-sm text-slate-500">{round.time}</p>
+                    </div>
+                    <div className={`text-[10px] bg-white/5 border border-white/10 px-3 py-1 rounded-full font-black tracking-widest ${round.color}`}>
+                      {round.tag}
+                    </div>
+                  </motion.div>
+                ))}
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div variants={item}>
+            <Card className="bg-[#b87333] border-none rounded-3xl text-[#2D1B0D] h-full shadow-2xl shadow-[#b87333]/10">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 uppercase text-sm font-black tracking-tighter">
+                  <Info size={18} /> Snake Pit Intel
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-black text-2xl leading-[1.1] mb-6 tracking-tight">
+                  "Holes 16, 17, and 18 are historically the hardest finish in Florida."
+                </p>
+                <div className="space-y-3 opacity-90 text-sm font-medium">
+                   <p>• 16: The Moccasin (Dogleg Right)</p>
+                   <p>• 17: The Rattler (Long Par 3)</p>
+                   <p>• 18: The Copperhead (Uphill Grind)</p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
-      </main>
+      </motion.div>
     </div>
   );
 }

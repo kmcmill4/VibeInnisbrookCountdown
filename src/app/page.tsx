@@ -384,10 +384,10 @@ export default function InnisbrookDashboard() {
 
         {/* DINNER PLANS */}
         <motion.div variants={item}>
-          <Card className="bg-gradient-to-br from-red-900/30 to-red-800/20 border-red-500/30 rounded-[2rem] shadow-xl overflow-hidden">
+          <Card className="bg-gradient-to-br from-purple-900/20 to-slate-800/30 border-purple-500/20 rounded-[2rem] shadow-xl overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-red-400 flex items-center gap-2 italic">
-                <Calendar className="text-red-400" /> Saturday Night Dinner
+              <CardTitle className="text-purple-300 flex items-center gap-2 italic">
+                <Calendar className="text-purple-300" /> Saturday Night Dinner
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -420,8 +420,8 @@ export default function InnisbrookDashboard() {
                     </motion.div>
                   </div>
                 </div>
-                <div className="bg-[#0B0D0E]/50 p-4 rounded-xl border border-red-500/20">
-                  <div className="text-xs text-red-400 uppercase mb-2 font-bold tracking-wider">Did You Know?</div>
+                <div className="bg-[#0B0D0E]/50 p-4 rounded-xl border border-amber-500/20">
+                  <div className="text-xs text-amber-400 uppercase mb-2 font-bold tracking-wider">Did You Know?</div>
                   <p className="text-sm text-slate-300 leading-relaxed">
                     Bern's boasts one of the world's largest wine collections with over 600,000 bottles! 
                     The wine cellar spans nearly half a city block. After dinner, head upstairs to the 

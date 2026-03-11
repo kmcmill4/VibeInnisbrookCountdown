@@ -35,7 +35,7 @@ export default function SnakePitTab() {
     }
   };
 
-  const snakePitPar = 10; // Hole 16 (par 4) + Hole 17 (par 3) + Hole 18 (par 4)
+  const snakePitPar = 11; // Hole 16 (par 4) + Hole 17 (par 3) + Hole 18 (par 4)
 
   // Sort predictions by total score (lowest first)
   const sortedPredictions = [...predictions]

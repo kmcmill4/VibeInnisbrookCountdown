@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Home, FileText, Cloud, Trophy, Users } from 'lucide-react';
+import { Flag, FileText, Cloud, Trophy, Users } from 'lucide-react';
 import HomeTab from '@/components/tabs/HomeTab';
 import ScorecardsTab from '@/components/tabs/ScorecardsTab';
 import WeatherTab from '@/components/tabs/WeatherTab';
@@ -14,7 +14,7 @@ export default function InnisbrookApp() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
 
   const tabs = [
-    { id: 'home' as TabType, icon: Home, label: 'Home' },
+    { id: 'home' as TabType, icon: Flag, label: 'Gauntlet' },
     { id: 'scorecards' as TabType, icon: FileText, label: 'Courses' },
     { id: 'weather' as TabType, icon: Cloud, label: 'Weather' },
     { id: 'snakepit' as TabType, icon: Trophy, label: 'Snake Pit' },

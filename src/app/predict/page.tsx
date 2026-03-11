@@ -19,7 +19,7 @@ export default function PredictPage() {
   const [error, setError] = useState('');
 
   const total = (parseInt(hole16) || 0) + (parseInt(hole17) || 0) + (parseInt(hole18) || 0);
-  const snakePitPar = 10; // 4 + 3 + 4
+  const snakePitPar = 11; // 4 + 3 + 4
   const overPar = total - snakePitPar;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -84,6 +84,14 @@ export default function PredictPage() {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Info Box at Top */}
+          <div className="bg-[#1C1C1E] rounded-2xl p-3 border border-white/5">
+            <p className="text-xs text-gray-400 leading-relaxed">
+              💡 Predict how many strokes you think you'll need for each hole in the Snake Pit. 
+              You can update your prediction anytime before the round.
+            </p>
+          </div>
+
           {/* Player Selection */}
           <div>
             <label className="block text-sm font-bold text-white mb-2">
@@ -183,14 +191,6 @@ export default function PredictPage() {
             )}
           </button>
         </form>
-
-        {/* Info */}
-        <div className="mt-4 bg-[#1C1C1E] rounded-2xl p-3 border border-white/5">
-          <p className="text-xs text-gray-400 leading-relaxed">
-            💡 Predict how many strokes you think you'll need for each hole in the Snake Pit. 
-            You can update your prediction anytime before the round.
-          </p>
-        </div>
       </div>
     </div>
   );

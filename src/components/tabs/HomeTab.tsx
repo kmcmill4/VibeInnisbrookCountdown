@@ -106,9 +106,11 @@ export default function HomeTab() {
         
         <div className="space-y-2">
           {[
-            { course: 'Copperhead', date: 'Fri 5/16', time: '8:00 AM', tag: 'SNAKE PIT', color: 'bg-[#b87333]/20 text-[#b87333] border-[#b87333]/30' },
-            { course: 'Island Course', date: 'Sat 5/17', time: '8:30 AM', tag: 'TIGHT ONE', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
-            { course: 'South Course', date: 'Sun 5/18', time: '8:55 AM', tag: 'REDEMPTION', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
+            { course: 'Cabot Citrus Farms', date: 'Thu 5/15', time: 'TBD', tag: 'ROOST', color: 'bg-orange-500/20 text-orange-400 border-orange-500/30', type: 'venue' },
+            { course: 'Copperhead', date: 'Fri 5/16', time: '8:00 AM', tag: 'SNAKE PIT', color: 'bg-[#b87333]/20 text-[#b87333] border-[#b87333]/30', type: 'course' },
+            { course: 'Island Course', date: 'Sat 5/17', time: '8:30 AM', tag: 'TIGHT ONE', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30', type: 'course' },
+            { course: "Bern's Steak House", date: 'Sat 5/17', time: 'Evening', tag: 'DINNER', color: 'bg-purple-500/20 text-purple-300 border-purple-500/30', type: 'venue' },
+            { course: 'South Course', date: 'Sun 5/18', time: '8:55 AM', tag: 'REDEMPTION', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30', type: 'course' },
           ].map((round, index) => (
             <div
               key={index}
@@ -151,27 +153,6 @@ export default function HomeTab() {
             </div>
           ))}
         </div>
-      </motion.div>
-
-      {/* Dinner */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="bg-gradient-to-br from-purple-900/20 to-purple-800/10 rounded-2xl p-4 border border-purple-500/20"
-      >
-        <div className="flex items-start justify-between mb-2">
-          <div>
-            <h3 className="font-bold text-white">Bern's Steak House</h3>
-            <p className="text-xs text-gray-400">Saturday Night • Tampa</p>
-          </div>
-          <div className="text-[9px] px-2.5 py-1 rounded-full font-black bg-purple-500/20 text-purple-300 border border-purple-500/30">
-            DINNER
-          </div>
-        </div>
-        <p className="text-xs text-gray-300 leading-relaxed">
-          Business casual • Famous for 600k+ bottle wine cellar
-        </p>
       </motion.div>
 
       {/* Footer */}

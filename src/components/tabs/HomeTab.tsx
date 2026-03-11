@@ -121,7 +121,8 @@ export default function HomeTab() {
       icon: '🍽️',
       gradient: 'from-purple-500 to-pink-500',
       color: 'purple',
-      location: 'Tampa, FL'
+      location: 'Tampa, FL',
+      isDinner: true
     },
     { 
       name: 'South Course', 
@@ -265,13 +266,19 @@ export default function HomeTab() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 + index * 0.1 }}
               whileHover={{ x: 4 }}
-              className={`relative overflow-hidden rounded-2xl border-l-[3px] backdrop-blur-xl bg-white/5 border-${item.color}-500 flex items-center gap-3 p-3 group cursor-pointer transition-all`}
+              className={`relative overflow-hidden rounded-2xl flex items-center gap-3 p-3 group cursor-pointer transition-all ${
+                item.isDinner 
+                  ? 'border-2 border-purple-500 bg-purple-500/10 backdrop-blur-xl' 
+                  : 'border-l-[3px] backdrop-blur-xl bg-white/5'
+              }`}
               style={{
                 boxShadow: `0 4px 16px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)`,
+                ...(item.isDinner ? {} : {
                 borderLeftColor: item.color === 'orange' ? '#f97316' : 
                                  item.color === 'amber' ? '#b87333' :
                                  item.color === 'emerald' ? '#10b981' :
                                  item.color === 'purple' ? '#a855f7' : '#3b82f6'
+                })
               }}
             >
               {/* Gradient icon background */}
@@ -324,34 +331,6 @@ export default function HomeTab() {
         </div>
       </motion.div>
 
-      {/* Google Map Embed */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="relative overflow-hidden rounded-3xl border border-white/10 backdrop-blur-xl bg-white/5"
-        style={{
-          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none z-10" />
-        <div className="p-3 border-b border-white/10 flex items-center gap-2 relative z-20">
-          <Navigation size={16} className="text-[#b87333]" />
-          <h3 className="text-sm font-bold text-white">Trip Map</h3>
-        </div>
-        <div className="relative h-64">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56687.89414935896!2d-82.74!3d28.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2e184e2e8c48f%3A0x8e3c3c5f5b5c5c5c!2sInnisbrook%20Golf%20Resort!5e0!3m2!1sen!2sus!4v1234567890"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="relative z-0"
-          />
-        </div>
-      </motion.div>
 
       {/* Trip Stats - Glassmorphism */}
       <motion.div
@@ -381,6 +360,8 @@ export default function HomeTab() {
           ))}
         </div>
       </motion.div>
+
+
 
       {/* Footer */}
       <div className="text-center text-gray-600 text-xs pt-4 pb-2">

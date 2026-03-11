@@ -159,10 +159,7 @@ export default function PlayersTab() {
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#b87333] to-[#d4954f] flex items-center justify-center font-black text-black text-base shadow-lg">
                   {player.nickname.substring(0, 2).toUpperCase()}
                 </div>
-                <div>
-                  <div className="font-bold text-white text-lg">{player.nickname}</div>
-                  <div className="text-xs text-gray-400">Handicap Index</div>
-                </div>
+                <div className="font-bold text-white text-lg">{player.nickname}</div>
               </div>
               
               {editMode ? (

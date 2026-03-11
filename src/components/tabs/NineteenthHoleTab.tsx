@@ -373,7 +373,7 @@ export default function NineteenthHoleTab() {
         <div className="p-4 border-b border-white/10 flex items-center justify-between relative z-20">
           <div className="flex items-center gap-2">
             <Navigation size={16} className="text-[#b87333]" />
-            <h3 className="text-sm font-bold text-white uppercase tracking-tight">Trip Navigation</h3>
+            <h3 className="text-sm font-bold text-white uppercase tracking-tight">Where Are We Going Tonight?!</h3>
           </div>
           <span className="text-[10px] text-white/40 font-mono">TAMPA BAY, FL</span>
         </div>

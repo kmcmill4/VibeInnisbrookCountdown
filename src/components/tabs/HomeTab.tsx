@@ -365,7 +365,7 @@ export default function HomeTab() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
+        transition={{ delay: 0.5 }}
         className="relative overflow-hidden rounded-3xl border border-white/10 backdrop-blur-xl bg-white/5"
         style={{
           boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
@@ -376,7 +376,7 @@ export default function HomeTab() {
           <Navigation size={16} className="text-[#b87333]" />
           <h3 className="text-sm font-bold text-white">Trip Map</h3>
         </div>
-        <div className="relative h-64">
+        <div className="relative h-80 sm:h-96 grayscale-[20%] contrast-[1.1] invert-[0.9] hue-rotate-[180deg]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56687.89414935896!2d-82.74!3d28.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2e184e2e8c48f%3A0x8e3c3c5f5b5c5c5c!2sInnisbrook%20Golf%20Resort!5e0!3m2!1sen!2sus!4v1234567890"
             width="100%"

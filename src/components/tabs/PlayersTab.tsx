@@ -173,7 +173,10 @@ export default function PlayersTab() {
                 />
               ) : (
                 <div className="text-right">
-                  <div className="text-3xl font-black text-white">{player.handicap}</div>
+                  <div className="text-3xl font-black text-white">
+                    {/* If it's Gootz, show the emoji, otherwise show the number */}
+                    {player.nickname === 'Gootz' ? '♿': player.handicap}
+                  </div>
                   <div className="text-[10px] text-gray-500 uppercase tracking-wider">HCP</div>
                 </div>
               )}

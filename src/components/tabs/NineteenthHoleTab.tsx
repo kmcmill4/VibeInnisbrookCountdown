@@ -27,26 +27,6 @@ const activities: Activity[] = [
     gradient: 'from-amber-600 to-orange-500',
     vibe: 'Classy & Relaxed'
   },
-  {
-    name: 'Burn by Rocky Patel',
-    category: 'Cigar Bar',
-    description: 'Upscale cigar bar in Ybor City. Premium cigars, craft cocktails, sophisticated vibe. Live music on weekends.',
-    address: '1600 E 8th Ave, Tampa, FL 33605',
-    distance: '25 mi',
-    icon: '🚬',
-    gradient: 'from-amber-600 to-orange-500',
-    vibe: 'Upscale Lounge'
-  },
-  {
-    name: 'Tampa Sweethearts Cigar Co',
-    category: 'Cigar Shop',
-    description: 'Historic Ybor cigar shop. Hand-rolled cigars, smoking lounge, rich Tampa cigar heritage.',
-    address: '1901 E 7th Ave, Tampa, FL 33605',
-    distance: '26 mi',
-    icon: '🚬',
-    gradient: 'from-amber-600 to-orange-500',
-    vibe: 'Historic'
-  },
   
   // Steakhouses & Fine Dining
   {
@@ -68,26 +48,6 @@ const activities: Activity[] = [
     icon: '🥩',
     gradient: 'from-red-600 to-rose-500',
     vibe: 'Modern Upscale'
-  },
-  {
-    name: "Oystercatchers",
-    category: 'Seafood',
-    description: 'Waterfront fine dining at Grand Hyatt. Fresh oysters, seafood towers, sunset views over Tampa Bay.',
-    address: '2900 Bayport Dr, Tampa, FL 33607',
-    distance: '18 mi',
-    icon: '🦞',
-    gradient: 'from-blue-600 to-cyan-500',
-    vibe: 'Waterfront Elegant'
-  },
-  {
-    name: 'Mise en Place',
-    category: 'Fine Dining',
-    description: "Tampa's best upscale American cuisine. Chef Marty Blitz creates magic. Perfect for a special celebration.",
-    address: '442 W Kennedy Blvd, Tampa, FL 33606',
-    distance: '21 mi',
-    icon: '🍽️',
-    gradient: 'from-purple-600 to-pink-500',
-    vibe: 'Award-Winning'
   },
   {
     name: 'Columbia Restaurant',
@@ -228,16 +188,6 @@ const activities: Activity[] = [
     vibe: 'Beach Day'
   },
   {
-    name: 'TopGolf Tampa',
-    category: 'Golf Entertainment',
-    description: 'Climate-controlled hitting bays, full bar, great food. Perfect for a casual golf session. Competitive games.',
-    address: '10690 Palm River Rd, Tampa, FL 33619',
-    distance: '28 mi',
-    icon: '⛳',
-    gradient: 'from-lime-600 to-green-500',
-    vibe: 'Golf & Games'
-  },
-  {
     name: 'Honeymoon Island State Park',
     category: 'Nature',
     description: 'Beautiful state park with pristine beach, nature trails, and wildlife. Great for morning runs. Osprey nests everywhere.',
@@ -268,16 +218,6 @@ const activities: Activity[] = [
     vibe: 'Deep Sea'
   },
   {
-    name: 'Busch Gardens Tampa',
-    category: 'Theme Park',
-    description: 'Roller coasters and wildlife. Iron Gwazi is one of the best coasters in the world. Full bar inside the park.',
-    address: '10165 McKinley Dr, Tampa, FL 33612',
-    distance: '24 mi',
-    icon: '🎢',
-    gradient: 'from-red-600 to-orange-500',
-    vibe: 'Thrill Rides'
-  },
-  {
     name: 'Tampa Bay Rays Game',
     category: 'Sports',
     description: 'Catch a Rays game at Tropicana Field. Great atmosphere, cheap tickets. Check schedule for home games in May.',
@@ -286,16 +226,6 @@ const activities: Activity[] = [
     icon: '⚾',
     gradient: 'from-blue-600 to-cyan-500',
     vibe: 'MLB Game'
-  },
-  {
-    name: 'Escape Room Adventures',
-    category: 'Entertainment',
-    description: 'Multiple escape room themes. Perfect for a competitive team challenge. Book the "Heist" room for best experience.',
-    address: '13563 Icot Blvd, Clearwater, FL 33760',
-    distance: '7 mi',
-    icon: '🔐',
-    gradient: 'from-purple-600 to-pink-500',
-    vibe: 'Team Challenge'
   },
 ];
 

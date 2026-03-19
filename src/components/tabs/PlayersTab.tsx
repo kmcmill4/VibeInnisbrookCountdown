@@ -22,6 +22,8 @@ const INITIAL_PLAYERS: Player[] = [
   { nickname: 'RayRay', handicap: 7 },
 ];
 
+const STORAGE_KEY = 'golf-players-v2';
+
 export default function PlayersTab() {
   const [players, setPlayers] = useState<Player[]>(INITIAL_PLAYERS);
   const [editMode, setEditMode] = useState(false);
@@ -29,7 +31,7 @@ export default function PlayersTab() {
 
   // Load from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem('golf-players');
+    const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -37,6 +39,9 @@ export default function PlayersTab() {
         setEditedPlayers(parsed);
       } catch (e) {
         console.error('Failed to load players:', e);
+        // If parsing fails, use initial players
+        setPlayers(INITIAL_PLAYERS);
+        setEditedPlayers(INITIAL_PLAYERS);
       }
     }
   }, []);
@@ -58,7 +63,7 @@ export default function PlayersTab() {
 
   const handleSave = () => {
     setPlayers([...editedPlayers]);
-    localStorage.setItem('golf-players', JSON.stringify(editedPlayers));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(editedPlayers));
     setEditMode(false);
   };
 
@@ -78,10 +83,16 @@ export default function PlayersTab() {
         <p className="text-xs text-gray-400 mt-1">10 players ready to tee it up</p>
       </div>
 
-      {/* Team Stats */}
-      <div className="bg-gradient-to-br from-[#1C1C1E] to-[#2C2C2E] rounded-2xl p-4 mb-4 border border-white/5 shadow-lg">
-        <h2 className="text-sm font-bold text-white mb-3">Team Stats</h2>
-        <div className="grid grid-cols-3 gap-3 text-center">
+      {/* Team Stats - Glassmorphism */}
+      <div 
+        className="relative overflow-hidden rounded-2xl border border-white/10 backdrop-blur-xl bg-white/5 p-4 mb-4 shadow-lg"
+        style={{
+          boxShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <h2 className="text-sm font-bold text-white mb-3 relative z-10">Team Stats</h2>
+        <div className="grid grid-cols-3 gap-3 text-center relative z-10">
           {[
             { label: 'Players', value: players.length, color: 'text-[#b87333]', emoji: '👥' },
             { label: 'Avg HCP', value: avgHandicap, color: 'text-white', emoji: '📊' },
@@ -151,11 +162,16 @@ export default function PlayersTab() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ delay: index * 0.03 }}
-              className={`bg-gradient-to-r from-[#1C1C1E] to-[#2C2C2E] rounded-2xl p-4 border border-white/5 flex items-center justify-between shadow-lg ${
-                editMode ? 'border-[#b87333]/30' : ''
+              className={`relative overflow-hidden rounded-2xl border backdrop-blur-xl p-4 flex items-center justify-between shadow-lg ${
+                editMode ? 'border-[#b87333]/30 bg-white/5' : 'border-white/5 bg-white/5'
               }`}
+              style={{
+                boxShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
+              }}
             >
-              <div className="flex items-center gap-3">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+              
+              <div className="flex items-center gap-3 relative z-10">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#b87333] to-[#d4954f] flex items-center justify-center font-black text-black text-base shadow-lg">
                   {player.nickname.substring(0, 2).toUpperCase()}
                 </div>
@@ -167,16 +183,13 @@ export default function PlayersTab() {
                   type="number"
                   value={player.handicap}
                   onChange={(e) => updateHandicap(player.nickname, e.target.value)}
-                  className="w-20 bg-black/40 border-2 border-[#b87333]/50 rounded-xl px-3 py-2 text-white text-2xl font-black text-center focus:outline-none focus:border-[#b87333]"
+                  className="w-20 bg-black/40 border-2 border-[#b87333]/50 rounded-xl px-3 py-2 text-white text-2xl font-black text-center focus:outline-none focus:border-[#b87333] relative z-10"
                   min="0"
                   max="54"
                 />
               ) : (
-                <div className="text-right">
-                  <div className="text-3xl font-black text-white">
-                    {/* If it's Gootz, show the emoji, otherwise show the number */}
-                    {player.nickname === 'Gootz' ? '♿': player.handicap}
-                  </div>
+                <div className="text-right relative z-10">
+                  <div className="text-3xl font-black text-white">{player.handicap}</div>
                   <div className="text-[10px] text-gray-500 uppercase tracking-wider">HCP</div>
                 </div>
               )}

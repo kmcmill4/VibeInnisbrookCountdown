@@ -15,7 +15,7 @@ const INITIAL_PLAYERS: Player[] = [
   { nickname: 'Benny', handicap: 15 },
   { nickname: 'Gootz', handicap: 6 },
   { nickname: 'Peppy', handicap: 10 },
-  { nickname: 'Caker', handicap: 14 },
+  { nickname: 'Tron', handicap: 14 },
   { nickname: 'Rosey', handicap: 9 },
   { nickname: 'Bluey', handicap: 11 },
   { nickname: 'Frenchie', handicap: 13 },

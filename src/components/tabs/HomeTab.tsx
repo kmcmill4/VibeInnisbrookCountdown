@@ -116,7 +116,7 @@ export default function HomeTab() {
     { 
       name: "Bern's Steak House", 
       date: 'Sat 5/17', 
-      time: 'Evening', 
+      time: '5:30 PM', 
       tag: 'DINNER', 
       icon: '🍽️',
       gradient: 'from-purple-500 to-pink-500',

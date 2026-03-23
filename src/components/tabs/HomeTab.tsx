@@ -85,7 +85,7 @@ export default function HomeTab() {
   const gauntletItems = [
     { 
       name: 'Cabot Citrus Farms', 
-      date: 'Thu 5/15', 
+      date: 'Thu 5/14', 
       time: 'TBD', 
       tag: 'ROOST', 
       icon: '🏌️',
@@ -95,7 +95,7 @@ export default function HomeTab() {
     },
     { 
       name: 'Copperhead', 
-      date: 'Fri 5/16', 
+      date: 'Fri 5/15', 
       time: '8:00 AM', 
       tag: 'SNAKE PIT', 
       icon: '🐍',
@@ -105,7 +105,7 @@ export default function HomeTab() {
     },
     { 
       name: 'Island Course', 
-      date: 'Sat 5/17', 
+      date: 'Sat 5/16', 
       time: '8:30 AM', 
       tag: 'TIGHT ONE', 
       icon: '🏝️',
@@ -115,7 +115,7 @@ export default function HomeTab() {
     },
     { 
       name: "Bern's Steak House", 
-      date: 'Sat 5/17', 
+      date: 'Sat 5/16', 
       time: '5:30 PM', 
       tag: 'DINNER', 
       icon: '🍽️',
@@ -126,7 +126,7 @@ export default function HomeTab() {
     },
     { 
       name: 'South Course', 
-      date: 'Sun 5/18', 
+      date: 'Sun 5/17', 
       time: '8:55 AM', 
       tag: 'REDEMPTION', 
       icon: '⛳',

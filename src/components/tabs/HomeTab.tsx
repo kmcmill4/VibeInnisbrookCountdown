@@ -85,48 +85,48 @@ export default function HomeTab() {
   const gauntletItems = [
     { 
       name: 'Cabot Citrus Farms', 
-      date: 'Thu 5/14', 
-      time: 'TBD', 
-      tag: 'ROOST', 
+      date: 'Fri 5/15',
+      time: 'TBD',
+      tag: 'ROOST',
       icon: '🏌️',
       gradient: 'from-orange-500 to-yellow-500',
       color: 'orange',
       location: 'Brooksville, FL'
     },
-    { 
-      name: 'Copperhead', 
-      date: 'Fri 5/15', 
-      time: '8:00 AM', 
-      tag: 'SNAKE PIT', 
+    {
+      name: 'Copperhead',
+      date: 'Sat 5/16',
+      time: '8:00 AM',
+      tag: 'SNAKE PIT',
       icon: '🐍',
       gradient: 'from-amber-600 to-yellow-600',
       color: 'amber',
       location: 'Innisbrook Resort'
     },
-    { 
-      name: 'Island Course', 
-      date: 'Sat 5/16', 
-      time: '8:30 AM', 
-      tag: 'TIGHT ONE', 
+    {
+      name: 'Island Course',
+      date: 'Sun 5/17',
+      time: '8:30 AM',
+      tag: 'TIGHT ONE',
       icon: '🏝️',
       gradient: 'from-emerald-500 to-teal-500',
       color: 'emerald',
       location: 'Innisbrook Resort'
     },
-    { 
-      name: "Bern's Steak House", 
-      date: 'Sat 5/16', 
-      time: '5:30 PM', 
-      tag: 'DINNER', 
+    {
+      name: "Bern's Steak House",
+      date: 'Sun 5/17',
+      time: '5:30 PM',
+      tag: 'DINNER',
       icon: '🍽️',
       gradient: 'from-purple-500 to-pink-500',
       color: 'purple',
       location: 'Tampa, FL',
       isDinner: true
     },
-    { 
-      name: 'South Course', 
-      date: 'Sun 5/17', 
+    {
+      name: 'South Course',
+      date: 'Mon 5/18',
       time: '8:55 AM', 
       tag: 'REDEMPTION', 
       icon: '⛳',

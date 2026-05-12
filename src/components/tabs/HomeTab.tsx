@@ -306,18 +306,9 @@ export default function HomeTab() {
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="font-bold text-white text-sm truncate">{item.name}</div>
-                {item.times ? (
-                  <>
-                    <div className="text-xs text-gray-400">{item.date}</div>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {item.times.map((t, i) => (
-                        <span key={i} className="text-[9px] text-gray-400 bg-white/10 rounded px-1.5 py-0.5 font-mono">{t}</span>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <div className="text-xs text-gray-400">{item.date} • {item.time}</div>
-                )}
+                <div className="text-xs text-gray-400 leading-relaxed">
+                  {item.times ? `${item.date} • ${item.times.join(' • ')}` : `${item.date} • ${item.time}`}
+                </div>
               </div>
               
               {/* Pill */}

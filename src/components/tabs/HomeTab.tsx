@@ -86,7 +86,8 @@ export default function HomeTab() {
     {
       name: 'Cabot Citrus Farms',
       date: 'Fri 5/15',
-      time: 'TBD',
+      time: '10:48am',
+      times: ['10:48am'],
       tag: 'ROOST',
       icon: '🏌️',
       gradient: 'from-orange-500 to-yellow-500',
@@ -113,7 +114,8 @@ export default function HomeTab() {
       gradient: 'from-purple-500 to-pink-500',
       color: 'purple',
       location: 'Tampa, FL',
-      isDinner: true
+      isDinner: true,
+      mapUrl: 'https://maps.google.com/?q=Massimo+Restaurant+Tampa+FL'
     },
     {
       name: 'Island Course',
@@ -135,7 +137,8 @@ export default function HomeTab() {
       gradient: 'from-purple-500 to-pink-500',
       color: 'purple',
       location: 'Tampa, FL',
-      isDinner: true
+      isDinner: true,
+      mapUrl: "https://maps.google.com/?q=Bern's+Steak+House+Tampa+FL"
     },
     {
       name: 'South Course',
@@ -280,11 +283,12 @@ export default function HomeTab() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 + index * 0.1 }}
               whileHover={{ x: 4 }}
-              className={`relative overflow-hidden rounded-2xl flex items-center gap-3 p-3 group cursor-pointer transition-all ${
-                item.isDinner 
-                  ? 'border-2 border-purple-500 bg-purple-500/10 backdrop-blur-xl' 
+              onClick={() => item.mapUrl && window.open(item.mapUrl, '_blank')}
+              className={`relative overflow-hidden rounded-2xl flex items-center gap-3 p-3 group transition-all ${
+                item.isDinner
+                  ? 'border-2 border-purple-500 bg-purple-500/10 backdrop-blur-xl'
                   : 'border-l-[3px] backdrop-blur-xl bg-white/5'
-              }`}
+              } ${item.mapUrl ? 'cursor-pointer' : 'cursor-default'}`}
               style={{
                 boxShadow: `0 4px 16px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)`,
                 ...(item.isDinner ? {} : {

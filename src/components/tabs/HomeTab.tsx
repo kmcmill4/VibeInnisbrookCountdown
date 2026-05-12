@@ -83,8 +83,8 @@ export default function HomeTab() {
   const showCountdown = timeLeft.totalDays >= 1;
 
   const gauntletItems = [
-    { 
-      name: 'Cabot Citrus Farms', 
+    {
+      name: 'Cabot Citrus Farms',
       date: 'Fri 5/15',
       time: 'TBD',
       tag: 'ROOST',
@@ -96,7 +96,8 @@ export default function HomeTab() {
     {
       name: 'Copperhead',
       date: 'Sat 5/16',
-      time: '8:00 AM',
+      time: '7:47 AM',
+      times: ['7:47am', '7:55am', '8:04am', '1:43pm'],
       tag: 'SNAKE PIT',
       icon: '🐍',
       gradient: 'from-amber-600 to-yellow-600',
@@ -104,9 +105,21 @@ export default function HomeTab() {
       location: 'Innisbrook Resort'
     },
     {
+      name: 'Massimo',
+      date: 'Sat 5/16',
+      time: '7:30 PM',
+      tag: 'DINNER',
+      icon: '🍽️',
+      gradient: 'from-purple-500 to-pink-500',
+      color: 'purple',
+      location: 'Tampa, FL',
+      isDinner: true
+    },
+    {
       name: 'Island Course',
       date: 'Sun 5/17',
-      time: '8:30 AM',
+      time: '8:21 AM',
+      times: ['8:21am', '8:29am', '8:38am'],
       tag: 'TIGHT ONE',
       icon: '🏝️',
       gradient: 'from-emerald-500 to-teal-500',
@@ -127,8 +140,9 @@ export default function HomeTab() {
     {
       name: 'South Course',
       date: 'Mon 5/18',
-      time: '8:55 AM', 
-      tag: 'REDEMPTION', 
+      time: '8:38 AM',
+      times: ['8:38am', '8:46am', '8:55am'],
+      tag: 'REDEMPTION',
       icon: '⛳',
       gradient: 'from-blue-500 to-cyan-500',
       color: 'blue',
@@ -292,7 +306,18 @@ export default function HomeTab() {
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="font-bold text-white text-sm truncate">{item.name}</div>
-                <div className="text-xs text-gray-400">{item.date} • {item.time}</div>
+                {item.times ? (
+                  <>
+                    <div className="text-xs text-gray-400">{item.date}</div>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {item.times.map((t, i) => (
+                        <span key={i} className="text-[9px] text-gray-400 bg-white/10 rounded px-1.5 py-0.5 font-mono">{t}</span>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-xs text-gray-400">{item.date} • {item.time}</div>
+                )}
               </div>
               
               {/* Pill */}
